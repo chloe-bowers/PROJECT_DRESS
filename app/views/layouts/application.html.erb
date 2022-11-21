@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PROJECTDress</title>
+    <title>PROJECT Dress</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Lora:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+    <%= render "components/navbar" %>
+
     <%= yield %>
+    <%# <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.allurebridals.com/imager/medialibrary/2023/Spring/Abella/337605/E313-08_5b1988760e92cb7bf33f9587054b9b85.jpg)">
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-trip-infos">
+              <div>
+                <h2>Lace off-the-shoulder</h2>
+                <p>White chiffon with flower details and flowy train 36!</p>
+              </div>
+              <h2 class="card-trip-pricing">£229.99</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.sophiatolli.com/uploads/images/products/513/0a737fd6_3b2f_409e_8c09_8a30f948831f.jpg)">
+          Lunch
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i0.wp.com/greenweddingshoes.com/wp-content/uploads/2021/12/beach-wedding-dresses.jpeg?resize=2048%2C19998)">
+          Dinner
+        </div>
+    </div> %>
   </body>
 </html>
