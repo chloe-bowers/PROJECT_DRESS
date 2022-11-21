@@ -1,0 +1,12 @@
+<h1>Hello</h1>
+
+<div>
+  <% @offers.each do |offer| %>
+    <li><%= offer.title %></li>
+    <p>
+      <%= link_to "Show this dress", offer_path(offer) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Offer a new dress", new_offer_path %>
