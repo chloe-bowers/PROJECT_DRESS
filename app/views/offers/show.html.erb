@@ -7,6 +7,8 @@
     <p> Offered by: <%= @offer.user.first_name %></p>
   </div>
   <div class="p-2">
+    <%# How can we add and differentiate between owner and normal user? %>
+    <%# Owner should be able to delete or edit offer %>
     <%= link_to "Rent this dress!", class: "btn btn-gradient" %>
   </div>
 </div>
