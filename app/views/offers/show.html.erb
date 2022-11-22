@@ -10,5 +10,6 @@
     <%# How can we add and differentiate between owner and normal user? %>
     <%# Owner should be able to delete or edit offer %>
     <%= link_to "Rent this dress!", class: "btn btn-gradient" %>
+    <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
   </div>
 </div>
