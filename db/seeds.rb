@@ -16,7 +16,7 @@ user = User.create!(first_name: "Ana", last_name: "Castaneda",
 file1 = URI.open("https://img.ltwebstatic.com/images3_pi/2022/04/19/165036126511dbcdb04dcbcf00cba917c7ebca35a0_thumbnail_900x.webp")
 offer_1 = Offer.new(title: "Wonder in Ivory", size: 38, condition: "New",
                     description: "This was my dream dress", user: user, price_per_day: 300.0)
-offer_1.photo.attach(io: file1, filename: "dress1.png", content_type: "image/png")
+offer_1.photos.attach(io: file1, filename: "dress1.png", content_type: "image/png")
 offer_1.save
 
 user_clo = User.create(first_name: "Chloe", last_name: "Bowers",
@@ -25,7 +25,7 @@ user_clo = User.create(first_name: "Chloe", last_name: "Bowers",
 file2 = URI.open("https://www.rlmedia.io/is/image/PoloGSI/s7-1440702_alternate10?$rl_df_pdp_5_7_a10$")
 offer_2 = Offer.new(title: "Amazing short dress", size: 38, condition: "New",
                     description: "Perfect for a civil wedding!", user: user_clo, price_per_day: 150.0)
-offer_2.photo.attach(io: file2, filename: "dress2.png", content_type: "image/png")
+offer_2.photos.attach(io: file2, filename: "dress2.png", content_type: "image/png")
 offer_2.save
 
 
@@ -34,5 +34,5 @@ user_nicola = User.create(first_name: "Nicola", last_name: "H",
 file3 = URI.open("https://img.ltwebstatic.com/images3_pi/2022/01/21/16427319378b5123722bf345c71c2ed828f205010a_thumbnail_900x.webp")
 offer_3 = Offer.new(title: "One of a king", size: 40, condition: "New", description: "A dream!",
                     user: user_nicola, price_per_day: 200.0)
-offer_3.photo.attach(io: file3, filename: "dress3.png", content_type: "image/png")
+offer_3.photos.attach(io: file3, filename: "dress3.png", content_type: "image/png")
 offer_3.save

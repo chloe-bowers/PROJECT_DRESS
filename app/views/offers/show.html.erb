@@ -9,7 +9,9 @@
   <div class="p-2">
     <%# How can we add and differentiate between owner and normal user? %>
     <%# Owner should be able to delete or edit offer %>
-    <%= cl_image_tag @offer.photo.key, height: 700, width: 400, crop: :fill %>
+    <% @offer.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 700, width: 400, crop: :fill %>
+    <% end %>
     <br>
     <%= link_to "Rent this dress!", class: "btn btn-gradient" %>
   </div>
