@@ -6,11 +6,13 @@
     <p> Description: <%= @offer.description %></p>
     <p> Offered by: <%= @offer.user.first_name %></p>
   </div>
-  <div class="p-2">
+  <div class="p-2 btn btn-outline-dark">
     <%# How can we add and differentiate between owner and normal user? %>
     <%# Owner should be able to delete or edit offer %>
     <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-gradient"%>
     <%= link_to "Rent this dress!", class: "btn btn-gradient" %>
     <%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
   </div>
+  <br>
+  <%= link_to "Back!", offers_path%>
 </div>

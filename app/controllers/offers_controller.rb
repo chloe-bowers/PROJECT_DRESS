@@ -24,6 +24,11 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
+  def edit
+    # authorize @offer
+    @offer = Offer.find(params[:id])
+  end
+
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
