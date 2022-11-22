@@ -10,7 +10,6 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-
     if @offer.save
       redirect_to @offer, notice: "Offer was successfully created."
     else
@@ -23,6 +22,8 @@ class OffersController < ApplicationController
   end
 
   def destroy
+    raise
+    @offer = Offer.find(params[:id])
     @offer.destroy
     redirect_to offer_path, status: :see_other
   end

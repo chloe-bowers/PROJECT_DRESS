@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
- end
+  end
   root to: "pages#home"
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
   resources :offers do
