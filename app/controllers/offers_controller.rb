@@ -1,15 +1,17 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
+    authorize @offer
     if @offer.save
       redirect_to @offer, notice: "Offer was successfully created."
     else
@@ -19,13 +21,14 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
   def destroy
-    raise
     @offer = Offer.find(params[:id])
     @offer.destroy
-    redirect_to offer_path, status: :see_other
+    redirect_to offers_path, status: :see_other
+    authorize @offer # Add this line
   end
 
   private

@@ -10,7 +10,7 @@
     <%# How can we add and differentiate between owner and normal user? %>
     <%# Owner should be able to delete or edit offer %>
     <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-gradient"%>
-    <%= link_to "Delete", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <%= link_to "Rent this dress!", class: "btn btn-gradient" %>
+    <%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
   </div>
 </div>
