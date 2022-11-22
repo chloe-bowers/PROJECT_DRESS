@@ -27,7 +27,6 @@ class OffersController < ApplicationController
   def edit
     @offer = Offer.find(params[:id])
     authorize @offer
-
   end
 
   def update
@@ -44,7 +43,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.destroy
     redirect_to offers_path, status: :see_other
-    authorize @offer # Add this line
+    authorize @offer
   end
 
   private
