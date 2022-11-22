@@ -3,8 +3,8 @@
 
   <div class="cards d-flex justify-content-around p-2">
     <% @offers.each do |offer| %>
-      <%# cards %>
-      <div class="card-trip", style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path("ndahf35caspnqmdurnax", width: 400, height: 300, crop: :fill) %>')">
+      <div class="card-trip">
+        <%= cl_image_tag offer.photo.key, height: 300, width: 400 %>
         <div class="card-trip-infos p-3">
           <div>
             <h2><%= link_to offer.title, offer_path(offer) %></h2>
@@ -12,7 +12,6 @@
           </div>
         </div>
       </div>
-      <%# cards end%>
     <% end %>
   </div>
   <div class="p-3">
