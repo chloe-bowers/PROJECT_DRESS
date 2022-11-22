@@ -25,8 +25,19 @@ class OffersController < ApplicationController
   end
 
   def edit
-    # authorize @offer
     @offer = Offer.find(params[:id])
+    authorize @offer
+
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    if @offer.update(offer_params)
+      redirect_to @offer, notice: "Dress was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

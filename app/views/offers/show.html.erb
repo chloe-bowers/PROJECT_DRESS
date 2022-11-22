@@ -11,7 +11,9 @@
     <%# Owner should be able to delete or edit offer %>
 
     <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-gradient" %>
+    <% if policy(@offer).edit? %>
     <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-gradient"%>
+    <% end %>
     <%= button_to "Destroy this offer", @offer, method: :delete if policy(@offer).destroy? %>
 
   </div>
