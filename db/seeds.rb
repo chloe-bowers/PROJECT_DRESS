@@ -12,7 +12,7 @@ User.destroy_all
 
 user = User.create!(first_name: "Ana", last_name: "Castaneda", email: "anita@hotmail.com", password: "Pedro1234", address: "Berlin")
 p user
-offer_1= Offer.create(title: "Wonder in Ivory", size: 38, condition: "New", description: "This was my dream dress", user: user, price_per_day: 300.0)
+offer_1 = Offer.create(title: "Wonder in Ivory", size: 38, condition: "New", description: "This was my dream dress", user: user, price_per_day: 300.0)
 p offer_1
 user_clo = User.create(first_name: "Chloe", last_name: "Bowers", email: "chloe@hotmail.com", password: "Pedro1234", address: "Berlin")
 Offer.create(title: "Amazing short dress", size: 38, condition: "New", description: "Perfect for a civil wedding!", user: user_clo, price_per_day: 150.0)
