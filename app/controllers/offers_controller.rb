@@ -23,7 +23,7 @@ class OffersController < ApplicationController
   end
 
   def edit
-     authorize @offer
+    #  authorize @offer
   end
 
   def destroy
