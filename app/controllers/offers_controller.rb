@@ -22,6 +22,11 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
   end
 
+  def destroy
+    @offer.destroy
+    redirect_to offer_path, status: :see_other
+  end
+
   private
 
   def offer_params
