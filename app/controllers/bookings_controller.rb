@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[accept decline]
+  # before_action :set_booking, only: %i[accept decline]
 
   def new
     @offer = Offer.find(params[:offer_id])
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     # assign booking to right user
     @booking.user = current_user
     # calculate total price and assign it to booking
-    @booking.total_price = @offer.price_per_day * (@booking.end_date - @booking.start_date)
+    @booking.total_price = @offer.price_per_day * (@booking.end_date - @booking.start_date).to_f
     # save it!
     if @booking.save
       redirect_to offer_path(@offer)
@@ -25,15 +25,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  def accept
+  # def accept
     # @booking = Booking.find(params[:id])
-    @booking.accepted!
-  end
+    # @booking.accepted!
+  # end
 
-  def decline
+  # def decline
     # @booking = Booking.find(params[:id])
-    @booking.declined!
-  end
+    # @booking.declined!
+  # end
 
   private
 
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:start_date, :end_date)
   end
 
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
+  # def set_booking
+    # @booking = Booking.find(params[:id])
+  # end
 end
