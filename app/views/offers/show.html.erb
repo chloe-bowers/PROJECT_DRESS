@@ -8,6 +8,7 @@
       <p> Description: <%= @offer.description %></p>
       <p> Offered by: <%= @offer.user.first_name %></p>
     </div>
+    
     <div class="p-2">
       <div class="p-2">
       <% if policy(@offer).edit? %>
@@ -16,8 +17,9 @@
       <% if policy(@offer).destroy? %>
       <%= button_to "Delete", @offer, method: :delete if policy(@offer).destroy? %>
       <% end %>
-      <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-gradient" %>
-      </div>
+      <% if current_user != @offer.user %>
+            <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-gradient" %>
+      <% end %>
     </div>
   </div>
 
@@ -31,6 +33,7 @@
         <%= cl_image_tag photo.key, class: "d-block w-100", alt: "Second slide" %>
       </div>
       <% end %>
+
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
