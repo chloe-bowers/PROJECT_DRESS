@@ -1,29 +1,26 @@
 <div class="p-2">
 <h1> Dress "<%= @offer.title %>"</h1>
   <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-3">
-        <p> Price: <%= @offer.price_per_day %> EUR</p>
-        <p> Condition: <%= @offer.condition %></p>
-        <p> Description: <%= @offer.description %></p>
-        <p> Offered by: <%= @offer.user.first_name %></p>
-        <div>
-            <% if policy(@offer).edit? %>
-              <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-outline-dark"%> |
-            <% end %>
-            <% if policy(@offer).destroy? %>
-            <%= button_to "Destroy", @offer, class:"btn btn-outline-dark", method: :delete %>
-            <% end %>
-            <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-outline-dark" %>
-          </div>
-        </div>
-        <div class="col-6">
-          <%# here carrousel %>
-          <% @offer.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 700, width: 400, crop: :fill %>
-          <% end %>
-          <br>
-      </div>
+    <p> Price: <%= @offer.price_per_day %> EUR</p>
+    <p> Condition: <%= @offer.condition %></p>
+    <p> Description: <%= @offer.description %></p>
+    <p> Offered by: <%= @offer.user.first_name %></p>
+  </div>
+  <div class="p-2">
+    <%# How can we add and differentiate between owner and normal user? %>
+    <%# Owner should be able to delete or edit offer %>
+    <% @offer.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 700, width: 400, crop: :fill %>
+    <% end %>
+    <br>
+    <div class="p-2">
+      <% if policy(@offer).edit? %>
+        <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-gradient"%> |
+      <% end %>
+      <% if policy(@offer).destroy? %>
+      <%= button_to "Destroy", @offer, method: :delete %>
+      
+      <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-gradient" %>
     </div>
   </div>
 </div>
