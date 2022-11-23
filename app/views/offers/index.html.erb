@@ -1,26 +1,27 @@
-<div class="p-5">
-  <h1>All dresses</h1>
 
-  <div class="cards d-flex justify-content-around p-2">
-    <% @offers.each do |offer| %>
-      <%# cards %>
-      <div class="card-trip">
-      <% if offer.photo.attached? %>
-      <img src = "<% offer.photo%>" />
-      <% else %>
-        <img src="https://www.sophiatolli.com/uploads/images/products/513/0a737fd6_3b2f_409e_8c09_8a30f948831f.jpg?w=2000" />
-      <% end %>
-        <div class="card-trip-infos p-3">
-          <div>
-            <h2><%= link_to offer.title, offer_path(offer) %></h2>
-            <p><%=offer.description%></p>
+  <div class="p-5">
+    <h1>All dresses</h1>
+
+    <div class="cards d-flex justify-content-around p-2">
+      <% @offers.each do |offer| %>
+        <%# cards %>
+        <div class="card-trip">
+        <% if offer.photo.attached? %>
+        <img src = "<% offer.photo%>" />
+        <% else %>
+          <img src="https://www.sophiatolli.com/uploads/images/products/513/0a737fd6_3b2f_409e_8c09_8a30f948831f.jpg?w=2000" />
+        <% end %>
+          <div class="card-trip-infos p-3">
+            <div>
+              <h2 class="card-heading"><%= link_to offer.title, offer_path(offer) %></h2>
+              <p><%=offer.description%></p>
+            </div>
           </div>
         </div>
-      </div>
-      <%# cards end%>
-    <% end %>
+        <%# cards end%>
+      <% end %>
+    </div>
+    <div class="p-3">
+      <%= link_to "Upload your dress for hire", new_offer_path, class: "btn btn-outline-dark" %>
+    </div>
   </div>
-  <div class="p-3">
-    <%= link_to "Upload your dress for hire", new_offer_path, class: "btn btn-outline-dark" %>
-  </div>
-</div>
