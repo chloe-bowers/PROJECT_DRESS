@@ -40,7 +40,6 @@ class BookingsController < ApplicationController
       # @booking.declined!
       @booking.update!(status: 2)
       flash[:error] = "Booking was declined"
-
       redirect_to dashboard_path
     end
   end
