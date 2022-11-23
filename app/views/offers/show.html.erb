@@ -12,13 +12,13 @@
     <div class="p-2">
       <div class="p-2">
       <% if policy(@offer).edit? %>
-      <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-gradient"%>
+      <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-outline-dark"%>
       <% end %>
       <% if policy(@offer).destroy? %>
-      <%= button_to "Delete", @offer, method: :delete if policy(@offer).destroy? %>
+      <%= button_to "Delete", @offer, class: "btn btn-outline-dark", method: :delete if policy(@offer).destroy? %>
       <% end %>
       <% if current_user != @offer.user %>
-            <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-gradient" %>
+            <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-outline-dark" %>
       <% end %>
       <br>
     </div>

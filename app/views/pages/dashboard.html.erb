@@ -1,32 +1,36 @@
-<div class= "p-2"><h1>Bookings Overview</h1>
-</div>
-<div class="cards d-flex justify-content-around p-2">
-    <% @bookings.each do |booking| %>
-      <%# cards %>
-      <div class="card-trip">
-        <% if booking.offer.photos.attached? %>
-          <%= cl_image_tag booking.offer.photos.first.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-        <div class="card-trip-infos p-3">
-          <div>
-            <h2><%= booking.offer.title %></h2>
-            <p><strong>Request by: </strong><%= booking.user.first_name %></p>
-            <p><strong>Offered by: </strong><%= booking.offer.user.first_name %></p>
-            <p><strong>Status: </strong><%= booking.status %></p>
-            <p><strong>Start: </strong> <%=booking.start_date%></p>
-            <p><strong>End: </strong> <%=booking.end_date%></p>
-
-            <div class="row justify-content-md-center">
+<div class = "container">
+  <div class= "p-2">
+    <h1>Bookings Overview</h1>
+  </div>
+  <div class="cards flex justify-content-around">
+      <% @bookings.each do |booking| %>
+        <%# cards %>
+        <div class="card" style="width: 18rem;">
+          <% if booking.offer.photos.attached? %>
+              <%= cl_image_tag booking.offer.photos.first.key, class:"card-img-top", height: 200, width: 300, crop: :fill %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= booking.offer.title %></h5>
+            <p class="card-text">Status: <%= booking.status %></p>
+            <p class="card-text">Request by: <%= booking.user.first_name %></p>
+            <p class="card-text">Offered by: <%= booking.offer.user.first_name %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">From:<%=booking.start_date%></li>
+            <li class="list-group-item">To:<%=booking.end_date%></li>
+          </ul>
+          <div class = "action-buttons">
             <% if booking.offer.user == current_user && booking.status == 'pending' %>
-            <%= button_to "Accept", booking_path(booking, status: 1), method: :patch, class: "btn btn-gradient" %>
+              <%= button_to "Accept", booking_path(booking, status: 1), method: :patch, class: "btn btn-light" %>
             <% end %>
             <% if booking.offer.user == current_user && booking.status == 'pending' %>
-            <%= button_to "Decline", booking_path(booking, status: 2), method: :patch, class: "btn btn-gradient" %>
+              <%= button_to "Decline", booking_path(booking, status: 2), method: :patch, class: "btn btn-light" %>
             <% end %>
-            </div>
           </div>
         </div>
-      </div>
-      <%# cards end%>
-    <% end %>
+        <%# cards end%>
+      <% end %>
+      <br>
+      <br>
+  </div>
 </div>
