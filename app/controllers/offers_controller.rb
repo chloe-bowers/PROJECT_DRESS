@@ -11,7 +11,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-    
+
     authorize @offer
 
     if @offer.save
@@ -43,9 +43,9 @@ class OffersController < ApplicationController
 
   def destroy
     @offer = Offer.find(params[:id])
+    authorize @offer
     @offer.destroy
     redirect_to offers_path, status: :see_other
-    authorize @offer
   end
 
   private
