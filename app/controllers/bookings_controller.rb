@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def new
     @offer = Offer.find(params[:offer_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -15,6 +16,7 @@ class BookingsController < ApplicationController
     @booking.offer = @offer
     # assign booking to right user
     @booking.user = current_user
+    authorize @booking
     # calculate total price and assign it to booking
     @booking.total_price = @offer.price_per_day * (@booking.end_date.to_date - @booking.start_date.to_date).to_i
     # save it!
