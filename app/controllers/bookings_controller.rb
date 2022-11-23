@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  # before_action :set_booking, only: %i[accept decline]
 
   def new
     @offer = Offer.find(params[:offer_id])
@@ -29,15 +28,20 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    if params[:status] == accepted
-      @booking.accepted!
+    authorize @booking
+    # @booking.update(booking_params)
+    # raise
+    if params[:status] == "1"
+      # @booking.accepted!
+      @booking.update!(status: 1)
       flash[:success] = "Booking was accepted"
-      redirect_to bookings_path
-    elsif params[:status] == declined
-      @booking.declined!
+      redirect_to dashboard_path
+    elsif params[:status] == "2"
+      # @booking.declined!
+      @booking.update!(status: 2)
       flash[:error] = "Booking was declined"
-      redirect_to bookings_path
+      redirect_to dashboard_path
+    end
   end
 
   private
@@ -45,8 +49,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status)
   end
-
-  # def set_booking
-    # @booking = Booking.find(params[:id])
-  # end
 end

@@ -18,8 +18,8 @@
         <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-gradient"%> |
       <% end %>
       <% if policy(@offer).destroy? %>
-      <%= button_to "Destroy", @offer, method: :delete if policy(@offer).destroy? %>
-      <% end %>
+      <%= button_to "Destroy", @offer, method: :delete %>
+      
       <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-gradient" %>
     </div>
   </div>
