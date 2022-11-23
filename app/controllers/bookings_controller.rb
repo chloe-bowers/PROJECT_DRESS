@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     # calculate total price and assign it to booking
-    @booking.total_price = @offer.price_per_day * (@booking.end_date - @booking.start_date).to_f
+    @booking.total_price = @offer.price_per_day * (@booking.end_date.to_date - @booking.start_date.to_date).to_i
     # save it!
     if @booking.save
       redirect_to offer_path(@offer)
@@ -27,22 +27,23 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def accept
-    # @booking = Booking.find(params[:id])
-    # authorize @booking
-    # @booking.accepted!
-  # end
-
-  # def decline
-    # @booking = Booking.find(params[:id])
-    # authorize @booking
-    # @booking.declined!
-  # end
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    if params[:status] == accepted
+      @booking.accepted!
+      flash[:success] = "Booking was accepted"
+      redirect_to bookings_path
+    elsif params[:status] == declined
+      @booking.declined!
+      flash[:error] = "Booking was declined"
+      redirect_to bookings_path
+  end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
   # def set_booking
