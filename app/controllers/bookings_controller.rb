@@ -30,7 +30,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     # @booking.update(booking_params)
-    # raise
     if params[:status] == "1"
       # @booking.accepted!
       @booking.update!(status: 1)
@@ -40,7 +39,6 @@ class BookingsController < ApplicationController
       # @booking.declined!
       @booking.update!(status: 2)
       flash[:error] = "Booking was declined"
-
       redirect_to dashboard_path
     end
   end

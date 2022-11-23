@@ -16,12 +16,14 @@
             <p><strong>Start: </strong> <%=booking.start_date%></p>
             <p><strong>End: </strong> <%=booking.end_date%></p>
 
+            <div class="row justify-content-md-center">
             <% if booking.offer.user == current_user && booking.status == 'pending' %>
             <%= button_to "Accept", booking_path(booking, status: 1), method: :patch, class: "btn btn-gradient" %>
             <% end %>
             <% if booking.offer.user == current_user && booking.status == 'pending' %>
             <%= button_to "Decline", booking_path(booking, status: 2), method: :patch, class: "btn btn-gradient" %>
             <% end %>
+            </div>
           </div>
         </div>
       </div>
