@@ -7,8 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 puts "Cleaning database..."
-Offer.destroy_all
-User.destroy_all
+# Offer.destroy_all
+# User.destroy_all
+
 
 user = User.create!(first_name: "Ana", last_name: "Castaneda",
                     email: "anita@hotmail.com", password: "Pedro1234", address: "Berlin")
