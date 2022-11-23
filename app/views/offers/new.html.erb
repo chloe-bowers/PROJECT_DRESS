@@ -1,5 +1,8 @@
+<div class ="p-2">
 <h1>New offer</h1>
+</div>
 
+<div class ="p-2">
 <%= simple_form_for(@offer) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -25,7 +28,7 @@
   </div>
 
 <div class="form-inputs">
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions">
@@ -37,4 +40,5 @@
 
 <div>
   <%= link_to "Back to offers", offers_path %>
+</div>
 </div>

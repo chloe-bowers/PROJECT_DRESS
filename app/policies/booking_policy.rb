@@ -1,15 +1,10 @@
-class OfferPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
-
-  def show?
-    true
-  end
-
   def new?
     true
   end
@@ -17,12 +12,12 @@ class OfferPolicy < ApplicationPolicy
   def create?
     true
   end
-
-  def update?
-    record.user == user
-  end
   
-  def destroy?
-    record.user == user
-  end
+  # def accept?
+  #   record.user == user
+  # end
+
+  # def decline?
+  #   record.user == user
+  # end
 end
