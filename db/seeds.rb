@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 puts "Cleaning database..."
 # Offer.destroy_all
@@ -33,7 +26,8 @@ offer_2.save
 user_nicola = User.create(first_name: "Nicola", last_name: "H",
                           email: "nicola@hotmail.com", password: "Pedro1234", address: "Berlin")
 file3 = URI.open("https://img.ltwebstatic.com/images3_pi/2022/01/21/16427319378b5123722bf345c71c2ed828f205010a_thumbnail_900x.webp")
-offer_3 = Offer.new(title: "One of a king", size: 40, condition: "New", description: "A dream!",
+offer_3 = Offer.new(title: "One of a kind", size: 40, condition: "New", description: "A dream!",
                     user: user_nicola, price_per_day: 200.0)
 offer_3.photos.attach(io: file3, filename: "dress3.png", content_type: "image/png")
 offer_3.save
+Footer
