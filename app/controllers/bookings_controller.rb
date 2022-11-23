@@ -38,6 +38,7 @@ class BookingsController < ApplicationController
       @booking.declined!
       flash[:error] = "Booking was declined"
       redirect_to bookings_path
+    end 
   end
 
   private
