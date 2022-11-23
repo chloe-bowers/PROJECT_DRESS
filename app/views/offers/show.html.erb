@@ -1,26 +1,30 @@
-<div class="p-2">
+<div class="container">
 <h1> Dress "<%= @offer.title %>"</h1>
-  <div class="container">
-    <p> Price: <%= @offer.price_per_day %> EUR</p>
-    <p> Condition: <%= @offer.condition %></p>
-    <p> Description: <%= @offer.description %></p>
-    <p> Offered by: <%= @offer.user.first_name %></p>
-  </div>
-  <div class="p-2">
-    <% @offer.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 700, width: 400, crop: :fill %>
-    <% end %>
-    <br>
-    <div class="p-2">
-      <% if policy(@offer).edit? %>
-        <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-outline-dark"%> |
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <p> Price: <%= @offer.price_per_day %> EUR</p>
+      <p> Condition: <%= @offer.condition %></p>
+      <p> Description: <%= @offer.description %></p>
+      <p> Offered by: <%= @offer.user.first_name %></p>
+
+      <div>
+        <% if policy(@offer).edit? %>
+          <%= link_to "Edit", edit_offer_path(@offer), class: "btn btn-outline-dark"%> |
+        <% end %>
+        <% if policy(@offer).destroy? %>
+          <%= button_to "Destroy", @offer, method: :delete, class: "btn btn-outline-dark" %>
+        <% end %>
+        <% if current_user != @offer.user %>
+              <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-outline-dark" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col">
+      <% @offer.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 700, width: 400, crop: :fill %>
       <% end %>
-      <% if policy(@offer).destroy? %>
-        <%= button_to "Destroy", @offer, method: :delete, class: "btn btn-outline-dark" %>
-      <% end %>
-      <% if current_user != @offer.user %>
-            <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-outline-dark" %>
-      <% end %>
+      <br>
     </div>
   </div>
 </div>
