@@ -1,15 +1,10 @@
 class OffersController < ApplicationController
   def index
-    if params[:query].present?
-      # sql_query = <<~SQL
-      #   movies.title @@ :query
-      #   OR movies.synopsis @@ :query
-      #   OR directors.first_name @@ :query
-      #   OR directors.last_name @@ :query
-      # SQL
-      # @movies = Movie.joins(:director).where(sql_query, query: "%#{params[:query]}%")
-      raise
-      @offers = Offer.global_search(params[:user]).global_search(params[:size]).global_search(params[:querry])
+    if params[:user].present? || params[:query].present? || params[:size].present?
+      @offers_user =  policy_scope(Offer).global_search(params[:user]) if params[:user].present?
+      @offers_query = policy_scope(Offer).global_search(params[:query]) if params[:query].present?
+      @offers_size = policy_scope(Offer).global_search(params[:size]) if params[:size].present?
+      @offers = [@offers_query, @offers_size, @offers_user].reject { |offer| offer.nil?}.first
     else
       @offers = policy_scope(Offer)
     end
