@@ -1,6 +1,13 @@
 class OffersController < ApplicationController
   def index
-    @offers = policy_scope(Offer)
+    if params[:user].present? || params[:query].present? || params[:size].present?
+      @offers_user =  policy_scope(Offer).global_search(params[:user]) if params[:user].present?
+      @offers_query = policy_scope(Offer).global_search(params[:query]) if params[:query].present?
+      @offers_size = policy_scope(Offer).global_search(params[:size]) if params[:size].present?
+      @offers = [@offers_query, @offers_size, @offers_user].reject { |offer| offer.nil?}.first
+    else
+      @offers = policy_scope(Offer)
+    end
   end
 
   def new

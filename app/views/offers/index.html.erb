@@ -2,6 +2,25 @@
   <div class="p-2">
     <h1>All dresses</h1>
 
+    <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :user,
+        params[:user],
+        class: "form-control",
+        placeholder: "Find a dress from"
+      %>
+      <%= text_field_tag :size,
+        params[:size],
+        class: "form-control",
+        placeholder: "Type a size"
+      %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a dress"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
     <div class="cards d-flex justify-content-around p-2">
       <% @offers.each do |offer| %>
         <div class="card-trip">
