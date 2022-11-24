@@ -1,11 +1,11 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_tag @offer.photos.first.key, height: 600, width:"500" %>
+      <%= cl_image_tag @offer.photos.first.key %>
     </div>
     <% @offer.photos.each do |photo| %>
       <div class="carousel-item card-category ">
-        <%= cl_image_tag photo.key, height: 600, width:"500" %>
+        <%= cl_image_tag photo.key, height: 700, width:"500"%>
       </div>
     <% end %>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
