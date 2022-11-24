@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     # calculate total price and assign it to booking
-    @booking.total_price = @offer.price_per_day * (@booking.end_date.to_date - @booking.start_date.to_date).to_i
+    @booking.total_price = @offer.price_per_day * (@booking.end_date.to_date - @booking.start_date.to_date)
     # save it!
     if @booking.save
       redirect_to offer_path(@offer)
