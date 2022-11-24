@@ -5,7 +5,6 @@
       <%= link_to "Project Dress", root_path, class: "navbar-brand" %>
     </div>
 
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,7 +13,6 @@
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-
         <li class="nav-item active">
           <%= link_to "Dresses", offers_path, class: "nav-link" %>
         </li>
@@ -29,7 +27,7 @@
             <% else %>
               <%= link_to "Sign in", user_session_path, class: "dropdown-item" %>
             <% end %>
-            </div>
+          </div>
         </li>
       </ul>
     </div>
