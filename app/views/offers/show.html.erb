@@ -1,7 +1,7 @@
 <div class="container" >
   <div class="row justify-content-md-center">
     <div class="col">
-    <h1> Dress "<%= @offer.title %>"</h1>
+    <h1 style= "font-family: 'Crimson Text', serif;"> Dress "<%= @offer.title %>"</h1>
     <div class="p-2">
       <p> Price: <%= @offer.price_per_day %> EUR</p>
       <p> Condition: <%= @offer.condition %></p>
@@ -22,7 +22,6 @@
         <% end %>
       <br>
       </div>
-    </div>
+    </div><%= render "components/carousel" %>
   </div>
-   <%= render "components/carousel" %>
 </div>
