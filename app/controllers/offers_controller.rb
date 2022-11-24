@@ -8,9 +8,11 @@ class OffersController < ApplicationController
       #   OR directors.last_name @@ :query
       # SQL
       # @movies = Movie.joins(:director).where(sql_query, query: "%#{params[:query]}%")
-      @offers = Offer.global_search(params[:query])
+      raise
+      @offers = Offer.global_search(params[:user]).global_search(params[:size]).global_search(params[:querry])
     else
-    @offers = policy_scope(Offer)
+      @offers = policy_scope(Offer)
+    end
   end
 
   def new
