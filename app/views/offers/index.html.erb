@@ -19,23 +19,27 @@
         class: "form-control",
         placeholder: "Find a dress"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-dark" %>
     <% end %>
-    
- <div class="p-1">
-  <%= link_to "Upload your dress for hire", new_offer_path, class: "btn btn-outline-dark" %>
-</div>
+    <br>
+    <div>
+    <%= link_to new_offer_path, class: "btn btn-dark" do %>
+      <i class="fa-solid fa-plus"></i> Upload your dress for hire
+    <% end %>
+    </div>
 
-<div class="cards">
+    <div class="cards">
       <% @offers.each do |offer| %>
         <div class="card">
           <% if offer.photos.attached? %>
+            <%= link_to '', offer_path(offer), class: 'card-link'  %>
             <%= cl_image_tag offer.photos.first.key, height: 300, width: 400%>
           <% end %>
           <div class="card-infos">
             <div>
               <h2><%= link_to offer.title, offer_path(offer) %></h2>
               <p><%=offer.description%></p>
+
             </div>
           </div>
         </div>
