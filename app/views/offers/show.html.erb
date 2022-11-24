@@ -20,6 +20,12 @@
         <% if current_user != @offer.user %>
               <%= link_to "Rent this dress!", new_offer_booking_path(@offer), class: "btn btn-outline-dark" %>
         <% end %>
+
+       <br>
+
+      <div>
+      <%= link_to "Back to offers", offers_path, class: "btn btn-outline-dark"%>
+    </div>
       <br>
       </div>
     </div><%= render "components/carousel" %>
