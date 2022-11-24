@@ -7,7 +7,7 @@
         <%# cards %>
         <div class="card" style="width: 18rem;">
           <% if booking.offer.photos.attached? %>
-              <%= cl_image_tag booking.offer.photos.first.key, class:"card-img-top card-pic" %>
+              <%= cl_image_tag booking.offer.photos.first.key, class:"card-pic" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= booking.offer.title %></h5>

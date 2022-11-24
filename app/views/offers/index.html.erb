@@ -4,11 +4,11 @@
 
     <div class="cards">
       <% @offers.each do |offer| %>
-        <div class="card-trip col-3">
+        <div class="card">
           <% if offer.photos.attached? %>
             <%= cl_image_tag offer.photos.first.key, height: 300, width: 400%>
           <% end %>
-          <div class="card-trip-infos">
+          <div class="card-infos">
             <div>
               <h2><%= link_to offer.title, offer_path(offer) %></h2>
               <p><%=offer.description%></p>
