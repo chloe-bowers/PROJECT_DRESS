@@ -30,4 +30,5 @@ offer_3 = Offer.new(title: "One of a kind", size: 40, condition: "New", descript
                     user: user_nicola, price_per_day: 200.0)
 offer_3.photos.attach(io: file3, filename: "dress3.png", content_type: "image/png")
 offer_3.save
-Footer
+
+# Footer
