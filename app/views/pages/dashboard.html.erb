@@ -7,17 +7,16 @@
         <%# cards %>
         <div class="card" style="width: 18rem;">
           <% if booking.offer.photos.attached? %>
-              <%= cl_image_tag booking.offer.photos.first.key, class:"card-img-top", height: 200, width: 300, crop: :fill %>
+              <%= cl_image_tag booking.offer.photos.first.key, class:"card-pic" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= booking.offer.title %></h5>
             <p class="card-text">Status: <%= booking.status %></p>
-            <p class="card-text">Request by: <%= booking.user.first_name %></p>
-            <p class="card-text">Offered by: <%= booking.offer.user.first_name %></p>
+            <p class="card-text">Date: <%=booking.start_date%> - <%=booking.end_date%></p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">From: <%=booking.start_date%></li>
-            <li class="list-group-item">To: <%=booking.end_date%></li>
+            <li class="list-group-item">Request by: <%= booking.user.first_name %></li>
+            <li class="list-group-item">Offered by: <%= booking.offer.user.first_name %></li>
           </ul>
           <div class = "action-buttons">
             <% if booking.offer.user == current_user && booking.status == 'pending' %>

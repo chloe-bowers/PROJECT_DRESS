@@ -1,5 +1,6 @@
 <div class = "container">
   <div class="p-2">
+
     <h1 style= "font-family: 'Crimson Text', serif;">All dresses</h1>
 
     <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
@@ -20,14 +21,18 @@
       %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
+    
+ <div class="p-1">
+  <%= link_to "Upload your dress for hire", new_offer_path, class: "btn btn-outline-dark" %>
+</div>
 
-    <div class="cards d-flex justify-content-around p-2">
+<div class="cards">
       <% @offers.each do |offer| %>
-        <div class="card-trip">
-        <% if offer.photos.attached? %>
-          <%= cl_image_tag offer.photos.first.key, height: 300, width: 400%>
-        <% end %>
-          <div class="card-trip-infos p-3">
+        <div class="card">
+          <% if offer.photos.attached? %>
+            <%= cl_image_tag offer.photos.first.key, height: 300, width: 400%>
+          <% end %>
+          <div class="card-infos">
             <div>
               <h2><%= link_to offer.title, offer_path(offer) %></h2>
               <p><%=offer.description%></p>
@@ -35,9 +40,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-    <div class="p-3">
-      <%= link_to "Upload your dress for hire", new_offer_path, class: "btn btn-outline-dark" %>
     </div>
   </div>
 </div>
