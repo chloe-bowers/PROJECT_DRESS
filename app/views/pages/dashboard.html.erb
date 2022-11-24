@@ -13,6 +13,7 @@
             <h5 class="card-title"><%= booking.offer.title %></h5>
             <p class="card-text">Status: <%= booking.status %></p>
             <p class="card-text">Date: <%=booking.start_date%> - <%=booking.end_date%></p>
+            <p class="card-text">Total price: <%=booking.total_price%></p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Request by: <%= booking.user.first_name %></li>
