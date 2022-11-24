@@ -16,8 +16,8 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <header><%= render "shared/navbar" %></header>
+    <article style="background-image: url('/app/assets/images/background.png');"><%= yield %></article>
+    <footer><%= render "shared/footer" %></footer>
   </body>
 </html>
