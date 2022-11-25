@@ -1,6 +1,8 @@
 <div class = "container">
   <div class= "p-2">
     <h1 style= "font-family: 'Crimson Text', serif;">Bookings Overview</h1>
+    <%= link_to "My bookings", mybookings_dashboard_path, class: "btn btn-dark" %>
+    <%= link_to "Others requests", bookingrequests_dashboard_path, class: "btn btn-dark" %>
   </div>
   <div class="cards flex justify-content-around">
       <% @bookings.each do |booking| %>
@@ -11,7 +13,6 @@
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= booking.offer.title %></h5>
-
             <h3 class="card-text card-badge">
             <% if booking.status == 'pending' %>
             <span class="badge badge-secondary"><%= booking.status.capitalize %></span>
