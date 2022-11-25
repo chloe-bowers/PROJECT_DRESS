@@ -1,7 +1,7 @@
 require "open-uri"
 puts "Cleaning database..."
-# Offer.destroy_all
-# User.destroy_all
+Offer.destroy_all
+User.destroy_all
 
 
 user = User.create!(first_name: "Ana", last_name: "Castaneda",
@@ -31,4 +31,3 @@ offer_3 = Offer.new(title: "One of a kind", size: 40, condition: "New", descript
 offer_3.photos.attach(io: file3, filename: "dress3.png", content_type: "image/png")
 offer_3.save
 
-# Footer
