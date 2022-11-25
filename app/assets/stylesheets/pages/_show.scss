@@ -28,3 +28,29 @@
 .float-container {
   padding: 50px;
 }
+
+.product-details {
+  padding: 50px;
+  overflow: hidden;
+  background: white;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.price-p {
+  font-size: 18px;
+}
+
+.green-border-focus .form-control:focus {
+  border: 1px solid #8bc34a;
+  box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+}
+
+.show-buttons {
+  display: flex;
+}
+
+.condition-p {
+  display: flex;
+}
