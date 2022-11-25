@@ -4,21 +4,9 @@
     <h1 style= "font-family: 'Crimson Text', serif;">All dresses</h1>
 
     <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :user,
-        params[:user],
-        class: "form-control",
-        placeholder: "Find a dress from"
-      %>
-      <%= text_field_tag :size,
-        params[:size],
-        class: "form-control",
-        placeholder: "Type a size"
-      %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a dress"
-      %>
+      <%= text_field_tag :user, params[:user], class: "form-control", placeholder: "Find a dress from"%>
+      <%= text_field_tag :size, params[:size], class: "form-control", placeholder: "Type a size"%>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dress"%>
       <%= submit_tag "Search", class: "btn btn-dark" %>
     <% end %>
     <br>
@@ -37,9 +25,8 @@
           <% end %>
           <div class="card-infos">
             <div>
-              <h2 style= "font-family: 'Crimson Text', serif;" ><%= link_to offer.title, offer_path(offer) %></h2>
+              <h2 style= "font-family: 'Crimson Text', serif;"> <%= link_to offer.title, offer_path(offer) %></h2>
               <p><%=offer.description%></p>
-
             </div>
           </div>
         </div>
