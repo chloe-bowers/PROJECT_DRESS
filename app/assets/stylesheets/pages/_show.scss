@@ -42,9 +42,10 @@
   font-size: 18px;
 }
 
-.green-border-focus .form-control:focus {
+.description-box {
   border: 1px solid #8bc34a;
   box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+  padding: 50px;
 }
 
 .show-buttons {
