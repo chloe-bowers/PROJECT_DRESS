@@ -15,6 +15,11 @@
   height: 600px;
 }
 
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
+}
+
 .float-child {
   width: 50%;
   float: left;
