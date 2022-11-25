@@ -15,7 +15,7 @@ class OffersController < ApplicationController
         @offers = @offers.global_search(params[:size]) if params[:size].present?
       end
     else
-      @offers = policy_scope(Offer)
+      @offers = policy_scope(Offer).order('created_at DESC')
     end
   end
 
