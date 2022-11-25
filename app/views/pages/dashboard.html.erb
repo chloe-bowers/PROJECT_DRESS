@@ -1,6 +1,8 @@
 <div class = "container">
   <div class= "p-2">
     <h1 style= "font-family: 'Crimson Text', serif;">Bookings Overview</h1>
+    <%= link_to "My bookings", mybookings_dashboard_path, class: "btn btn-dark" %>
+    <%= link_to "Others requests", bookingrequests_dashboard_path, class: "btn btn-dark" %>
   </div>
   <div class="cards flex justify-content-around">
       <% @bookings.each do |booking| %>
@@ -11,13 +13,22 @@
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= booking.offer.title %></h5>
-            <p class="card-text">Status: <%= booking.status %></p>
-            <p class="card-text">Date: <%=booking.start_date%> - <%=booking.end_date%></p>
-            <p class="card-text">Total price: <%=booking.total_price%></p>
+            <h3 class="card-text card-badge">
+            <% if booking.status == 'pending' %>
+            <span class="badge badge-secondary"><%= booking.status.capitalize %></span>
+            <% end %>
+            <% if booking.status == 'accepted' %>
+            <span class="badge badge-success"><%= booking.status.capitalize %></span>
+            <% end %>
+            <% if booking.status == 'declined' %>
+            <span class="badge badge-danger"><%= booking.status.capitalize %></span>
+            <% end %>
+            </h3>
+            <p class="card-text"> <i class="fa-solid fa-calendar-days"></i> <%=booking.start_date%> - <%=booking.end_date%></p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Request by: <%= booking.user.first_name %></li>
-            <li class="list-group-item">Offered by: <%= booking.offer.user.first_name %></li>
+            <li class="list-group-item card-text">Request by: <%= booking.user.first_name %></li>
+            <li class="list-group-item card-text">Offered by: <%= booking.offer.user.first_name %></li>
           </ul>
           <div class = "action-buttons">
             <% if booking.offer.user == current_user && booking.status == 'pending' %>

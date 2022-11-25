@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
   root to: "pages#home"
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get '/dashboard/mybookings', to: 'pages#mybookings', as: 'mybookings_dashboard'
+  get '/dashboard/bookingrequests', to: 'pages#bookingrequests', as: 'bookingrequests_dashboard'
   resources :offers do
     resources :bookings, only: %i[new create]
   end
@@ -14,4 +16,3 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
-
