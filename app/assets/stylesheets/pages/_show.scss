@@ -23,6 +23,7 @@
 .float-child {
   width: 50%;
   float: left;
+  flex-grow: inherit;
 }
 
 .float-container {
@@ -34,7 +35,7 @@
   overflow: hidden;
   background: white;
   border-radius: 5px;
-  position: relative;
+  //position: relative;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
